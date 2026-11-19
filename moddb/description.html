@@ -1,28 +1,37 @@
-<p><strong>A tamed locust in a sailor's hat takes the helm of your boat and sails it from dock to dock, around the land, on a route that repeats.</strong> No world map is needed: the route is made of docks and buoys you place in the world.</p>
-<p>Made for servers that want boat lines between towns, as a train line has stations and a timetable.</p>
-<h3>What it adds</h3>
+<p><strong>A tamed locust in a sailor's hat that takes the helm of a boat and sails it between named docks.</strong> Lines that run by themselves, ports with several berths, boats that queue and take turns, and boats that go on sailing while nobody is near.</p>
+
+<h3>What you get</h3>
 <ul>
-<li><strong>Sailor locust</strong>: use the item on a boat and it sits at the helm. Right click its seat (or press <strong>O</strong> on board) for its sailing orders; sneak and right click to take it back.</li>
-<li><strong>Dock post</strong>: a block with a name. Boats stop there for the seconds you set.</li>
-<li><strong>Route buoy</strong>: placed on the water, with a name. Boats pass by it without stopping: use buoys to lead a boat out of a harbour, through a channel or up a river.</li>
+<li><strong>Sailor locust</strong> (item): use it on a boat and it stands by the helm. Right click the helm seat (or press <code>O</code> on board, or in the water near the boat) for its <em>sailing orders</em>: click the docks and buoys it knows to add stops, move them up and down, set how long it waits at each dock. After the last stop it starts over. Sneak and right click to take it back.</li>
+<li><strong>Dock post</strong> (block): a named stop. It looks the way you face when you place it: the boat lies in front of it, side to the pier. A yellow outline on the water shows the berth and its lanes while you hold it.</li>
+<li><strong>Route buoy</strong> (block): a named point the boat passes without stopping, to lead it out of a harbour, through a channel or up a river.</li>
+<li><strong>Route wand</strong> (creative only): shows the way a locust has planned.</li>
 </ul>
-<h3>Sailing orders</h3>
-<p>The docks and buoys the locust knows are buttons: click one to add a stop. Each stop can go up, go down or be taken out, and a dock has its seconds of waiting. After the last stop the route starts over. Nothing to type but the seconds.</p>
+
+<h3>Ports</h3>
+<ul>
+<li>Docks with the same name are the berths of one port. A boat asks for a berth as it nears the port, and waits off the port when none is free: first come, first served.</li>
+<li>A berth is only given to a boat that fits along the pier and has a clear way in, free of blocks and of boats lying there. A dock can be kept for small boats only.</li>
+<li>Coming in or leaving, a boat keeps the water it works in and the others wait their turn. Long boats come in along the pier and are tied alongside; with no room to turn, they leave astern.</li>
+<li><strong>Port beacons</strong> (optional): name a buoy after the port and give it a role in its sheet: <em>waiting area</em> (blue), <em>way out</em> (green), <em>way in</em> (yellow, passed by every boat bound for the port).</li>
+</ul>
+
+<h3>Out of sight</h3>
+<p>A boat under orders with no player near leaves the world and sails on by time along its route, at the speed it really sailed; it comes back on the water, with its locust at the helm, when someone comes near. A boat with a player seated in it never leaves the world.</p>
+
 <h3>How it finds its way</h3>
 <ul>
-<li><strong>The long route</strong> comes from world generation's ocean map, with no chunk generated: the way around the continents. It does not see lakes, rivers or islets.</li>
-<li><strong>The water in sight</strong>: the real blocks around the boat, looked at again about every second, keep it off shores, rocks and ice.</li>
-<li><strong>Buoys</strong> where the two above are not enough.</li>
+<li>The long route comes from world generation's ocean map, so it knows the way around land without the chunks being generated. It does not see lakes, rivers or islets: buoys are for those.</li>
+<li>Around the boat it looks at the real blocks and the other boats, and steers clear of shores, piers and hulls.</li>
+<li>The locust sets the boat's own speed and turning as a player's keys would, and the sail on boats that have one: each boat keeps its own handling. Works on the game's boats and on Shipwright's.</li>
 </ul>
-<h3>Ports with several berths</h3>
-<p>Docks with the same name are one port, each a berth. A boat nearing the port takes the free dock nearest to it; with none free it waits off the port, and the boat that came first berths first. A boat without a locust lying at a dock counts as taking it. Keep the docks of one port some 16 blocks apart.</p>
-<h3>Out of sight</h3>
-<p>A boat under orders whose chunk unloads leaves the world and sails on by time along its route, at the speed it really sailed; when the place it has reached is loaded, it is put back on the water there with its locust at the helm and all it carries. A boat with a player seated in it never leaves the world. This can be turned off in the config.</p>
-<h3>Which boats</h3>
-<p>The game's own boats and boats built the same way. Tried with the game's sailboat and raft and with Shipwright's catboat. While the locust is under way, whoever sits in the boat is a passenger; at anchor a player can take the helm.</p>
-<h3>Config</h3>
-<p><code>ModConfig/sailorlocust.json</code>: recipes on or off, arrival distances, default wait, sail used on open water, orders only from the owner, sailing out of sight on or off. Staff commands: <code>/sailor list</code>, <code>/sailor fleet</code>, <code>/sailor route</code>.</p>
-<h3>Early version</h3>
-<p>This is a first public release, made for the Arcadia roleplay server. The grid recipes are provisional. Rivers and lakes need buoys. Please report what you find in the comments.</p>
+
+<h3>For server staff</h3>
+<p><code>ModConfig/sailorlocust.json</code>: <code>EnableRecipes</code>, <code>OceanThreshold</code>, <code>ArrivalRadius</code>, <code>BuoyPassRadius</code>, <code>BerthAskDistance</code>, <code>DefaultWaitSeconds</code>, <code>CruiseSail</code>, <code>OwnerOnly</code> (only who placed a locust may change its orders), <code>OffscreenSailing</code>, <code>HideUnseen</code>, <code>UnseenDistance</code>, <code>Debug</code>.<br>
+Commands (privilege <code>controlserver</code>): <code>/sailor list</code>, <code>/sailor fleet</code>, <code>/sailor route &lt;from&gt; &lt;to&gt;</code>. Staff also see every boat under orders on the world map (layer "Sailor Locust: boats").</p>
+
+<h3>Source</h3>
+<p>MIT licensed: <a href="https://github.com/monsterarth/sailorlocust">github.com/monsterarth/sailorlocust</a>. Issues, pull requests and compatibility patches for other boat mods are welcome.</p>
+
 <h3>Credits</h3>
-<p>Inspired by the <strong>Conductor Locust</strong> of Yang's Transport Tycoon (a locust that drives trains between named stations on a timetable, and trains that go on off screen) and by <strong>Boat Autopilot</strong> by Majke. The ideas only: this mod shares no code and no assets with either. The locust's body is the game's own, used by reference; the hat, the dock post and the buoy are this mod's.</p>
+<p>Inspired by the Conductor Locust of <a href="https://mods.vintagestory.at/yangtransport">Yang's Transport Tycoon</a> (a locust that drives trains between named stations on a timetable) and by Boat Autopilot by Majke (a boat that follows a route by itself). The ideas only: this mod shares no code and no assets with either. The locust's body and skin are the game's own, used by reference; the hat, the dock post, the buoy and the beacons are this mod's.</p>
