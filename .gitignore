@@ -1,0 +1,7 @@
+# build output
+dist/
+obj/
+old-builds/
+# third-party mods used only by the local tests (not ours to redistribute)
+testmods/
+*.zip

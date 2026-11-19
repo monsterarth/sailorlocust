@@ -1,0 +1,51 @@
+{
+	// a buoy given a role in its port (Marker.Role): the waiting area (blue) or the way out (green). Made by giving a
+	// buoy that role in its sheet; it goes back to a plain buoy, and drops one
+	code: "sailorbeacon",
+	class: "BlockSailorMarker",
+	entityClass: "SailorMarker",
+	variantgroups: [ { code: "role", states: ["wait", "exit", "entry"] } ],
+	attributes: {
+		markerKind: "buoy"
+	},
+	shape: { base: "block/sailorbeacon" },
+	texturesByType: {
+		"*-wait": {
+			"wood": { base: "game:block/wood/debarked/oak" },
+			"color": { base: "game:block/cloth/linen/blue" },
+			"white": { base: "game:block/cloth/linen/white" },
+			"metal": { base: "game:block/metal/sheet/copper1" }
+		},
+		"*-entry": {
+			"wood": { base: "game:block/wood/debarked/oak" },
+			"color": { base: "game:block/cloth/linen/yellow" },
+			"white": { base: "game:block/cloth/linen/white" },
+			"metal": { base: "game:block/metal/sheet/copper1" }
+		},
+		"*-exit": {
+			"wood": { base: "game:block/wood/debarked/oak" },
+			"color": { base: "game:block/cloth/linen/green" },
+			"white": { base: "game:block/cloth/linen/white" },
+			"metal": { base: "game:block/metal/sheet/copper1" }
+		}
+	},
+	drops: [ { type: "block", code: "sailorlocust:sailorbuoy", quantity: { avg: 1 } } ],
+	blockmaterial: "Wood",
+	drawtype: "JSON",
+	sideopaque: { all: false },
+	sidesolid: { all: false },
+	sideao: { all: false },
+	emitsideao: { all: false },
+	rainPermeable: true,
+	liquidSelectable: 1,
+	lightAbsorption: 0,
+	lightHsv: [4, 5, 10],
+	resistance: 0.5,
+	collisionbox: null,
+	selectionbox: { x1: 0.25, y1: 0, z1: 0.25, x2: 0.75, y2: 2, z2: 0.75 },
+	sounds: {
+		place: "game:block/planks",
+		break: "game:block/planks",
+		hit: "game:block/planks"
+	}
+}

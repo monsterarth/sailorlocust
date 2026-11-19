@@ -1,0 +1,38 @@
+{
+	code: "sailorlocust",
+	class: "EntitySailorLocust",
+	hitboxSize: { x: 0.65, y: 0.7 },
+	eyeHeight: 0.3,
+	attributes: {
+		isMechanical: true
+	},
+	client: {
+		renderer: "Shape",
+		// the game's own locust, by reference; the hat is this mod's and is added when the shape is built
+		shape: { base: "game:entity/lore/locust/locust-bronze" },
+		glowLevel: 32,
+		size: 1.2,
+		textures: {
+			"skin": { base: "game:entity/lore/locust/bronze-hacked" },
+			"hat": { base: "sailorlocust:entity/sailorhat" }
+		},
+		behaviors: [
+			{ code: "interpolateposition" }
+		],
+		animations: [
+			{
+				code: "idle",
+				animation: "idlecalm",
+				blendMode: "Average",
+				triggeredBy: { defaultAnim: true }
+			}
+		]
+	},
+	server: {
+		behaviors: []
+	},
+	sounds: {
+		idle: { path: "game:creature/locust/idle", pitch: { avg: 1.2, var: 0.2 } }
+	},
+	idleSoundChance: 0.02
+}

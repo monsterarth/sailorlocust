@@ -1,0 +1,29 @@
+{
+	code: "sailorlocust",
+	class: "ItemSailorLocust",
+	maxstacksize: 1,
+	creativeinventory: { "general": ["*"], "sailorlocust": ["*"] },
+	// the game's own locust, by reference
+	shape: { base: "game:entity/lore/locust/locust-bronze" },
+	textures: {
+		"skin": { base: "game:entity/lore/locust/bronze-hacked" }
+	},
+	guiTransform: {
+		rotation: { x: -20, y: 35, z: 0 },
+		origin: { x: 0.45, y: 0.15, z: 0.5 },
+		scale: 2.6
+	},
+	tpHandTransform: {
+		translation: { x: -0.8, y: -0.2, z: -0.6 },
+		scale: 0.7
+	},
+	fpHandTransform: {
+		translation: { x: 0, y: 0.1, z: 0.3 },
+		rotation: { x: 0, y: 60, z: 0 },
+		scale: 1.6
+	},
+	groundTransform: {
+		origin: { x: 0.5, y: 0, z: 0.5 },
+		scale: 3
+	}
+}

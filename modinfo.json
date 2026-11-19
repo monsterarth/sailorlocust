@@ -1,0 +1,12 @@
+{
+  "type": "code",
+  "modid": "sailorlocust",
+  "name": "Sailor Locust",
+  "authors": ["monster_arth"],
+  "description": "A tamed locust that takes the helm of any boat and sails it between named docks: along buoys you place, or along the shortest water route it works out by itself, with a timetable that repeats. No world map needed. Inspired by the Conductor Locust of Yang's Transport Tycoon and by Boat Autopilot (Majke); it shares no code and no assets with either.",
+  "version": "0.4.4",
+  "side": "universal",
+  "requiredOnClient": true,
+  "requiredOnServer": true,
+  "dependencies": { "game": "1.22.0" }
+}

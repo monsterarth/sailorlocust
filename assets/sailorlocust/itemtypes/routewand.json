@@ -1,0 +1,8 @@
+{
+	// a staff tool: in the creative inventory only, no recipe
+	code: "routewand",
+	class: "ItemSailorWand",
+	maxstacksize: 1,
+	creativeinventory: { "general": ["*"], "sailorlocust": ["*"] },
+	texture: { base: "game:block/metal/sheet/copper1" }
+}

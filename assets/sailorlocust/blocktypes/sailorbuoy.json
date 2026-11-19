@@ -1,0 +1,41 @@
+{
+	code: "sailorbuoy",
+	class: "BlockSailorMarker",
+	entityClass: "SailorMarker",
+	attributes: {
+		markerKind: "buoy"
+	},
+	creativeinventory: { "general": ["*"], "sailorlocust": ["*"] },
+	shape: { base: "block/sailorbuoy" },
+	textures: {
+		"wood": { base: "game:block/wood/debarked/oak" },
+		"red": { base: "game:block/cloth/linen/red" },
+		"white": { base: "game:block/cloth/linen/white" },
+		"metal": { base: "game:block/metal/sheet/copper1" }
+	},
+	blockmaterial: "Wood",
+	drawtype: "JSON",
+	sideopaque: { all: false },
+	sidesolid: { all: false },
+	sideao: { all: false },
+	emitsideao: { all: false },
+	rainPermeable: true,
+	// placed on the water, as a water lily is
+	liquidSelectable: 1,
+	lightAbsorption: 0,
+	lightHsv: [4, 5, 6],
+	resistance: 0.5,
+	// nothing to run into: boats pass over it
+	collisionbox: null,
+	selectionbox: { x1: 0.25, y1: 0, z1: 0.25, x2: 0.75, y2: 0.9, z2: 0.75 },
+	sounds: {
+		place: "game:block/planks",
+		break: "game:block/planks",
+		hit: "game:block/planks"
+	},
+	guiTransform: {
+		rotation: { x: -20, y: 30, z: 0 },
+		origin: { x: 0.5, y: 0.3, z: 0.5 },
+		scale: 1.6
+	}
+}

@@ -1,0 +1,86 @@
+{
+	"editor": { "allAngles": true },
+	"textureWidth": 16,
+	"textureHeight": 16,
+	"textures": { "wood": "wood", "plank": "plank", "metal": "metal", "cloth": "cloth" },
+	"elements": [
+		{
+			"name": "Post",
+			"from": [6.5, 0, 6.5],
+			"to": [9.5, 13, 9.5],
+			"faces": {
+				"north": { "texture": "#wood", "uv": [0, 0, 3, 13] },
+				"east": { "texture": "#wood", "uv": [0, 0, 3, 13] },
+				"south": { "texture": "#wood", "uv": [0, 0, 3, 13] },
+				"west": { "texture": "#wood", "uv": [0, 0, 3, 13] },
+				"up": { "texture": "#wood", "uv": [0, 0, 3, 3] },
+				"down": { "texture": "#wood", "uv": [0, 0, 3, 3] }
+			}
+		},
+		{
+			"name": "Foot",
+			"from": [5.5, 0, 5.5],
+			"to": [10.5, 1.5, 10.5],
+			"faces": {
+				"north": { "texture": "#plank", "uv": [0, 0, 5, 2] },
+				"east": { "texture": "#plank", "uv": [0, 0, 5, 2] },
+				"south": { "texture": "#plank", "uv": [0, 0, 5, 2] },
+				"west": { "texture": "#plank", "uv": [0, 0, 5, 2] },
+				"up": { "texture": "#plank", "uv": [0, 0, 5, 5] },
+				"down": { "texture": "#plank", "uv": [0, 0, 5, 5] }
+			}
+		},
+		{
+			"name": "Board",
+			"from": [2, 7, 7.5],
+			"to": [14, 11, 8.5],
+			"faces": {
+				"north": { "texture": "#plank", "uv": [0, 0, 12, 4] },
+				"east": { "texture": "#plank", "uv": [0, 0, 1, 4] },
+				"south": { "texture": "#plank", "uv": [0, 0, 12, 4] },
+				"west": { "texture": "#plank", "uv": [0, 0, 1, 4] },
+				"up": { "texture": "#plank", "uv": [0, 0, 12, 1] },
+				"down": { "texture": "#plank", "uv": [0, 0, 12, 1] }
+			}
+		},
+		{
+			"name": "LampSeat",
+			"from": [6, 13, 6],
+			"to": [10, 14, 10],
+			"faces": {
+				"north": { "texture": "#metal", "uv": [0, 0, 4, 1] },
+				"east": { "texture": "#metal", "uv": [0, 0, 4, 1] },
+				"south": { "texture": "#metal", "uv": [0, 0, 4, 1] },
+				"west": { "texture": "#metal", "uv": [0, 0, 4, 1] },
+				"up": { "texture": "#metal", "uv": [0, 0, 4, 4] },
+				"down": { "texture": "#metal", "uv": [0, 0, 4, 4] }
+			}
+		},
+		{
+			"name": "Lamp",
+			"from": [6.75, 14, 6.75],
+			"to": [9.25, 16, 9.25],
+			"faces": {
+				"north": { "texture": "#metal", "uv": [0, 0, 2, 2] },
+				"east": { "texture": "#metal", "uv": [0, 0, 2, 2] },
+				"south": { "texture": "#metal", "uv": [0, 0, 2, 2] },
+				"west": { "texture": "#metal", "uv": [0, 0, 2, 2] },
+				"up": { "texture": "#metal", "uv": [0, 0, 2, 2] },
+				"down": { "texture": "#metal", "uv": [0, 0, 2, 2] }
+			}
+		},
+		{
+			"name": "Pennant",
+			"from": [9.5, 11.5, 7.8],
+			"to": [14, 14.5, 8.2],
+			"faces": {
+				"north": { "texture": "#cloth", "uv": [0, 0, 4, 3] },
+				"east": { "texture": "#cloth", "uv": [0, 0, 0, 3] },
+				"south": { "texture": "#cloth", "uv": [0, 0, 4, 3] },
+				"west": { "texture": "#cloth", "uv": [0, 0, 0, 3] },
+				"up": { "texture": "#cloth", "uv": [0, 0, 4, 0] },
+				"down": { "texture": "#cloth", "uv": [0, 0, 4, 0] }
+			}
+		}
+	]
+}

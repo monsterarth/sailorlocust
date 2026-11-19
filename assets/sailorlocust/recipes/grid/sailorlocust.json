@@ -1,0 +1,34 @@
+[
+	{
+		// provisional: to be balanced by the server's staff
+		ingredientPattern: "RG,MM",
+		ingredients: {
+			"R": { type: "item", code: "game:rope" },
+			"G": { type: "item", code: "game:gear-temporal" },
+			"M": { type: "block", code: "game:metal-parts" }
+		},
+		width: 2,
+		height: 2,
+		output: { type: "item", code: "sailorlocust" }
+	},
+	{
+		ingredientPattern: "R,P,P",
+		ingredients: {
+			"R": { type: "item", code: "game:rope" },
+			"P": { type: "item", code: "game:plank-*" }
+		},
+		width: 1,
+		height: 3,
+		output: { type: "block", code: "sailordock" }
+	},
+	{
+		ingredientPattern: "R,P",
+		ingredients: {
+			"R": { type: "item", code: "game:rope" },
+			"P": { type: "item", code: "game:plank-*" }
+		},
+		width: 1,
+		height: 2,
+		output: { type: "block", code: "sailorbuoy", quantity: 2 }
+	}
+]

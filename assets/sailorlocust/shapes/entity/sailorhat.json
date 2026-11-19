@@ -1,0 +1,70 @@
+{
+	"editor": { "allAngles": true },
+	"textureWidth": 32,
+	"textureHeight": 32,
+	"textures": { "hat": "sailorlocust:entity/sailorhat" },
+	"elements": [
+		{
+			"name": "SailorHatBand",
+			"stepParentName": "abdomen",
+			"from": [0.75, 4.0, 0.75],
+			"to": [4.25, 4.7, 4.25],
+			"rotationOrigin": [2.5, 4.0, 2.5],
+			"faces": {
+				"north": { "texture": "#hat", "uv": [0, 16, 14, 19] },
+				"east": { "texture": "#hat", "uv": [0, 16, 14, 19] },
+				"south": { "texture": "#hat", "uv": [0, 16, 14, 19] },
+				"west": { "texture": "#hat", "uv": [0, 16, 14, 19] },
+				"up": { "texture": "#hat", "uv": [0, 0, 14, 14] },
+				"down": { "texture": "#hat", "uv": [0, 0, 14, 14] }
+			},
+			"children": [
+				{
+					"name": "SailorHatCrown",
+					"from": [-0.5, 0.7, -0.5],
+					"to": [4.0, 1.5, 4.0],
+					"rotationOrigin": [1.75, 0.7, 1.75],
+					"faces": {
+						"north": { "texture": "#hat", "uv": [0, 20, 16, 23] },
+						"east": { "texture": "#hat", "uv": [0, 20, 16, 23] },
+						"south": { "texture": "#hat", "uv": [0, 20, 16, 23] },
+						"west": { "texture": "#hat", "uv": [0, 20, 16, 23] },
+						"up": { "texture": "#hat", "uv": [16, 0, 32, 16] },
+						"down": { "texture": "#hat", "uv": [0, 0, 14, 14] }
+					},
+					"children": [
+						{
+							"name": "SailorHatPompom",
+							"from": [1.85, 0.8, 1.85],
+							"to": [2.65, 1.5, 2.65],
+							"rotationOrigin": [2.25, 0.8, 2.25],
+							"faces": {
+								"north": { "texture": "#hat", "uv": [16, 16, 20, 20] },
+								"east": { "texture": "#hat", "uv": [16, 16, 20, 20] },
+								"south": { "texture": "#hat", "uv": [16, 16, 20, 20] },
+								"west": { "texture": "#hat", "uv": [16, 16, 20, 20] },
+								"up": { "texture": "#hat", "uv": [16, 16, 20, 20] },
+								"down": { "texture": "#hat", "uv": [16, 16, 20, 20] }
+							}
+						},
+						{
+							"name": "SailorHatRibbon",
+							"from": [4.5, -0.9, 1.6],
+							"to": [4.7, 0.3, 2.9],
+							"rotationOrigin": [4.5, 0.3, 2.25],
+							"rotationZ": -12,
+							"faces": {
+								"north": { "texture": "#hat", "uv": [20, 16, 21, 22] },
+								"east": { "texture": "#hat", "uv": [20, 16, 26, 22] },
+								"south": { "texture": "#hat", "uv": [20, 16, 21, 22] },
+								"west": { "texture": "#hat", "uv": [20, 16, 26, 22] },
+								"up": { "texture": "#hat", "uv": [20, 16, 26, 17] },
+								"down": { "texture": "#hat", "uv": [20, 16, 26, 17] }
+							}
+						}
+					]
+				}
+			]
+		}
+	]
+}
