@@ -201,6 +201,7 @@ namespace SailorLocust
             new BerthPreview(api);
             RouteShare.StartClient(api);
             FleetMapLayer.Register(api);
+            StopsMapLayer.Register(api);
             api.Input.RegisterHotKey(HotkeyOrders, "Sailor Locust: sailing orders", GlKeys.O, HotkeyType.GUIOrOtherControls);
             api.Input.SetHotKeyHandler(HotkeyOrders, combo =>
             {

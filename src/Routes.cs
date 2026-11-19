@@ -196,7 +196,7 @@ namespace SailorLocust
 
         // ---------------------------------------------------------------- the players
 
-        HashSet<long> KnownBy(IServerPlayer player)
+        public HashSet<long> KnownBy(IServerPlayer player)
         {
             if (!known.TryGetValue(player.PlayerUID, out HashSet<long> set)) { LoadKnown(player); set = known[player.PlayerUID]; }
             return set;

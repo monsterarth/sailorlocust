@@ -63,7 +63,7 @@ namespace SailorLocust
     /// </summary>
     public class EntitySailorLocust : EntityAgent
     {
-        public const int PacketSaveOrders = 2001, PacketToggle = 2002, PacketPickup = 2003, PacketRefresh = 2004, PacketOpen = 2005, PacketRoute = 2006;
+        public const int PacketSaveOrders = 2001, PacketToggle = 2002, PacketPickup = 2003, PacketRefresh = 2004, PacketOpen = 2005, PacketRoute = 2006, PacketStops = 2007, PacketStopsList = 2008;
 
         public Pilot Pilot;
         double unmountedFor;
@@ -310,6 +310,7 @@ namespace SailorLocust
         public override void OnReceivedClientPacket(IServerPlayer player, int packetId, byte[] data)
         {
             base.OnReceivedClientPacket(player, packetId, data);
+            if (packetId == PacketStops) { SendStops(player); return; }
             if (packetId < PacketSaveOrders || packetId > PacketRefresh) return;
             if (packetId == PacketRefresh) { UpdateKnown(); return; }
             if (!MayCommand(player)) return;
@@ -343,6 +344,36 @@ namespace SailorLocust
         }
 
         /// <summary>The docks and buoys nearest to here, for the orders sheet: "D|name|blocks" on each line.</summary>
+        /// <summary>
+        /// The docks and buoys this player may add to a route, with where they are, for the sheet and the map: those the
+        /// player has been near (as for the sea routes on maps) and those near the boat. A port is one line, at its
+        /// nearest dock, with its number of berths; a port's own buoys are left out.
+        /// </summary>
+        public void SendStops(IServerPlayer player)
+        {
+            if (!(Api is ICoreServerAPI sapi) || player == null) return;
+            var system = sapi.ModLoader.GetModSystem<SailorLocustSystem>();
+            HashSet<long> knows = system.Routes.KnownBy(player);
+            var near = new HashSet<long>();
+            foreach (Marker m in system.Markers.Nearest(Pos.X, Pos.Z, 24)) near.Add(Berths.KeyOf(m));
+            var seen = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
+            var sb = new StringBuilder();
+            var inv = System.Globalization.CultureInfo.InvariantCulture;
+            foreach (Marker any in system.Markers.All)
+            {
+                if (any.Role != Marker.RoleRoute) continue;
+                long key = Berths.KeyOf(any);
+                if (!knows.Contains(key) && !near.Contains(key)) continue;
+                Marker m = system.Markers.Find(any.Name, player.Entity?.Pos.X ?? Pos.X, player.Entity?.Pos.Z ?? Pos.Z) ?? any;
+                if (!seen.Add(m.Name)) continue;
+                int berths = 0;
+                foreach (Marker other in system.Markers.FindAll(m.Name)) if (other.Dock == m.Dock && other.Role == Marker.RoleRoute) berths++;
+                sb.Append(m.Dock ? "D|" : "B|").Append(m.Name).Append('|').Append(m.X.ToString(inv)).Append('|').Append(m.Z.ToString(inv)).Append('|').Append(Math.Max(1, berths)).Append('\n');
+                if (seen.Count >= 200) break;
+            }
+            sapi.Network.SendEntityPacket(player, EntityId, PacketStopsList, Encoding.UTF8.GetBytes(sb.ToString()));
+        }
+
         public void UpdateKnown()
         {
             var system = Api.ModLoader.GetModSystem<SailorLocustSystem>();
@@ -371,6 +402,7 @@ namespace SailorLocust
             base.OnReceivedServerPacket(packetid, data);
             if (packetid == PacketOpen && Api is ICoreClientAPI capi) new GuiDialogSailingOrders(capi, this).TryOpen();
             if (packetid == PacketRoute && Api is ICoreClientAPI capi2 && data != null) RouteView.Show(capi2, data);
+            if (packetid == PacketStopsList && data != null) StopsMapLayer.SetKnown(Encoding.UTF8.GetString(data));
         }
 
         public string StatusText()
